@@ -15,8 +15,6 @@ public class Main {
         employees[9] = new Employee("Иванов Павел Иванович", "4", 85000, 0);
 
 
-
-
         // a.Получить список всех сотрудников со всеми имеющимися по ним данными
         System.out.println("Cписок всех сотрудников со всеми имеющимися по ним данными:");
         EmployeeService.printEmployees(employees);
@@ -41,6 +39,7 @@ public class Main {
         // f.Получить Ф. И. О. всех сотрудников (вывести в консоль).
         System.out.println("Cписок всех сотрудников:");
         EmployeeService.printEmployeesFIO(employees);
+
 
     }
 

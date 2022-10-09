@@ -4,16 +4,16 @@ public class Employee {
     private String FIO;
     private String Department; // можно было сделать тип int, т.к. по условию названия отделов цифры  1-5
     private float salary;
-    private static int id;
+    private int id;
+    private static int countId;
 
     public Employee(String FIO, String Department, float salary, int id) {
         this.FIO = FIO;
         this.Department = Department;
         this.salary = salary;
-        Employee.id++;
+        Employee.countId++;
+        this.id = countId;
     }
-
-
 
 
     public String getDepartment() {
