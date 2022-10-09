@@ -1,36 +1,50 @@
 public class EmployeeService {
 
-    public static void listEmployees(Employee[] employees) {
+    public static void printEmployees(Employee[] employees) {
+
+        int counterNull = 0;
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(i + 1 + ". " + (employees[i]));
+            if (employees[i].getFIO() != null) {
+                System.out.println(i + 1 - counterNull + ". " + employees[i]);
+            } else {
+                counterNull = counterNull + 1;
+            }
         }
     }
 
-    public static void listEmployeesFIO(Employee[] employees) {
+    public static void printEmployeesFIO(Employee[] employees) {
+
+        int counterNull = 0;
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(i + 1 + ". " + employees[i].getFIO());
+            if (employees[i].getFIO() != null) {
+                System.out.println(i + 1 - counterNull + ". " + employees[i].getFIO());
+            } else {
+                counterNull = counterNull + 1;
+            }
         }
     }
 
     public static void printSalaryMonth(Employee[] employees) {
         float sumSalaryMonth = 0;
         for (int i = 0; i < employees.length; i++) {
-            sumSalaryMonth = sumSalaryMonth + employees[i].getSalary();
+            if (employees[i].getSalary() != 0 && employees[i].getFIO() != null) {
+                sumSalaryMonth = sumSalaryMonth + employees[i].getSalary();
+            }
         }
         System.out.println(String.format("Общая сумму затрат на зарплаты в месяц: %.2f", sumSalaryMonth));
     }
 
     public static void printMeanSalaryMonth(Employee[] employees) {
-        int ii = 0;
+        int realEmployeeCounter = 0;
         float sumMeanSalaryMonth = 0;
         float sumSalaryMonth = 0;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() != 0) {
+            if (employees[i].getSalary() != 0 && employees[i].getFIO() != null) {
                 sumSalaryMonth = sumSalaryMonth + employees[i].getSalary();
-                ii = ii + 1;
+                realEmployeeCounter = realEmployeeCounter + 1;
             }
         }
-        sumMeanSalaryMonth = sumSalaryMonth / ii;
+        sumMeanSalaryMonth = sumSalaryMonth / realEmployeeCounter;
         System.out.println(String.format("Cреднее значение зарплаты в месяц: %.2f", sumMeanSalaryMonth));
     }
 
@@ -40,11 +54,12 @@ public class EmployeeService {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalary() != 0 && minSalaryMonth == 0) {
                 minSalaryMonth = employees[i].getSalary();
+                break;
             }
         }
 
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() < minSalaryMonth && employees[i].getSalary() != 0) {
+            if (employees[i].getSalary() < minSalaryMonth && employees[i].getSalary() != 0 && employees[i].getFIO() != null) {
                 minSalaryMonth = employees[i].getSalary();
                 employeesMinFIO = employees[i].getFIO();
             }
@@ -58,11 +73,12 @@ public class EmployeeService {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalary() != 0 && maxSalaryMonth == 0) {
                 maxSalaryMonth = employees[i].getSalary();
+                break;
             }
         }
 
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > maxSalaryMonth) {
+            if (employees[i].getSalary() > maxSalaryMonth && employees[i].getFIO() != null) {
                 maxSalaryMonth = employees[i].getSalary();
                 employeesMaxFIO = employees[i].getFIO();
             }

@@ -14,15 +14,12 @@ public class Main {
         employees[8] = new Employee("Иванов Аркадий Иванович", "4", 80000, 0);
         employees[9] = new Employee("Иванов Павел Иванович", "4", 85000, 0);
 
-        int id;
-        for (int i = 0; i < employees.length; i++) {
-            id = i + 1;
-            employees[i].setId(id);
-        }
+
+
 
         // a.Получить список всех сотрудников со всеми имеющимися по ним данными
         System.out.println("Cписок всех сотрудников со всеми имеющимися по ним данными:");
-        EmployeeService.listEmployees(employees);
+        EmployeeService.printEmployees(employees);
         System.out.println();
 
         // b.Посчитать сумму затрат на зарплаты в месяц.
@@ -43,7 +40,7 @@ public class Main {
 
         // f.Получить Ф. И. О. всех сотрудников (вывести в консоль).
         System.out.println("Cписок всех сотрудников:");
-        EmployeeService.listEmployeesFIO(employees);
+        EmployeeService.printEmployeesFIO(employees);
 
     }
 
